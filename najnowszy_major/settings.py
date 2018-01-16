@@ -25,6 +25,8 @@ for base_domain in BASE_DOMAINS:
         f'{base_domain}',
         f'http://{base_domain}',
         f'http://{base_domain:8000}',
+        f'http://{base_domain:8080}',
+        f'{base_domain:8080}',
         f'{base_domain:8000}',
     ]
 
