@@ -15,10 +15,18 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-API_URLS = ['http://127.0.0.1:8000', '127.0.0.1:8000']
-CLIENT_URLS = ['http://127.0.0.1:8080', '127.0.0.1:8080']
+BASE_DOMAINS = ['127.0.0.1']
 
 
+APP_URLS = []
+
+for base_domain in BASE_DOMAINS:
+    APP_URLS += [
+        f'{base_domain}',
+        f'http://{base_domain}',
+        f'http://{base_domain:8000}',
+        f'{base_domain:8000}',
+    ]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -29,14 +37,10 @@ SECRET_KEY = '1nub2cx&_w+)k-t^asxfb!@+1&7i83g57m$arz$u#wun1xjv6_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = APP_URLS
 
-ALLOWED_HOSTS += API_URLS + CLIENT_URLS
-
-CORS_ORIGIN_WHITELIST = API_URLS + CLIENT_URLS
-CSRF_TRUSTED_ORIGINS = (
-    '127.0.0.1:8000',
-)
+CORS_ORIGIN_WHITELIST = APP_URLS
+CSRF_TRUSTED_ORIGINS = APP_URLS
 
 # Application definition
 
