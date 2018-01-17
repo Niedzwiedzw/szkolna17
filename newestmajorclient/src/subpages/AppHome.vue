@@ -45,7 +45,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <app-channel v-for="(channel, index) in channels" :key="index" :channel="channel"></app-channel>
+          <app-channel v-for="(channel, index) in channels" :key="channel.videos[0].id.videoId" :channel="channel"></app-channel>
         </div>
       </div>
     </div>
@@ -94,6 +94,14 @@
       axios.get('').then((response) => {
         this.channels = response.data
       })
+      this.channels.sort((channel1, channel2) => {
+        let date1 = new Date(channel1.videos[0].snippet.publishedAt)
+        let date2 = new Date(channel2.videos[0].snippet.publishedAt)
+        if (date1 < date2) return -1
+        if (date1 > date2) return 1
+        return 0
+      })
+      this.set(example1.items, 0, newValue)
     }
   }
 </script>

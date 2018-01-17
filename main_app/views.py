@@ -10,4 +10,6 @@ def index(request):
     for channel in YoutubeChannel.objects.all():
         channels.append({'name': channel.name,
                          'videos': channel.latest_videos})
+
+    channels.sort(key=lambda x: x['videos'][0]['snippet']['publishedAt'], reverse=True)
     return JsonResponse(data=channels, safe=False)

@@ -37,7 +37,7 @@ for base_domain in BASE_DOMAINS:
 SECRET_KEY = '1nub2cx&_w+)k-t^asxfb!@+1&7i83g57m$arz$u#wun1xjv6_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('MAJOR_DEBUG', 0) == 1
+DEBUG = os.getenv('MAJOR_DEBUG', 0) == '1'
 if DEBUG:
     print('### STARTING IN DEBUG MODE ###')
 else:
