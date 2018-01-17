@@ -101,7 +101,6 @@
         if (date1 > date2) return 1
         return 0
       })
-      this.set(example1.items, 0, newValue)
     }
   }
 </script>

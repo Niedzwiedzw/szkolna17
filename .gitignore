@@ -113,3 +113,4 @@ ENV/
 pyvenv.cfg
 pip-selfcheck.json
 db.sqlite3
+deploy.bash

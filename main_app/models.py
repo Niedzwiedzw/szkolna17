@@ -57,3 +57,22 @@ class YoutubeChannel(models.Model):
 
 class YoutubeApiKey(models.Model):
     value = models.CharField(max_length=512)
+
+
+class SiteEntries(models.Model):
+    amount = models.IntegerField()
+
+    @classmethod
+    def hit(cls):
+        hitnumber = cls.objects.first()
+
+        if hitnumber is None:
+            hitnumber = cls(amount=0)
+
+        hitnumber.amount += 1
+        hitnumber.save()
+
+    @classmethod
+    def get_amount(cls):
+        return cls.objects.first().amount
+
