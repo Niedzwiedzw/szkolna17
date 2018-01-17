@@ -37,9 +37,15 @@ for base_domain in BASE_DOMAINS:
 SECRET_KEY = '1nub2cx&_w+)k-t^asxfb!@+1&7i83g57m$arz$u#wun1xjv6_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('MAJOR_DEBUG', 0) == 1
+if DEBUG:
+    print('### STARTING IN DEBUG MODE ###')
+else:
+    print('### PRODUCTION ENABLED ###')
 
 ALLOWED_HOSTS = APP_URLS
+
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 CORS_ORIGIN_WHITELIST = APP_URLS
 CSRF_TRUSTED_ORIGINS = APP_URLS
