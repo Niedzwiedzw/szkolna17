@@ -67,7 +67,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted"><strong>{{ channels[0].hits }}</strong> odwiedzin strony ugółem!</p>
+            <p v-if="channels[0]" class="copyright text-muted"><strong>{{ channels[0].hits }}</strong> odwiedzin strony ugółem!</p>
             <p class="copyright text-muted">Copyright &copy; nowymajor.pl 2018</p>
           </div>
         </div>
